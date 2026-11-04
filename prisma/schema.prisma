@@ -1,0 +1,28 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model Tarefa {
+  id          Int      @id @default(autoincrement())
+  titulo      String
+  descricao   String?
+  disciplina  String?
+  dataEntrega DateTime
+  concluida   Boolean  @default(false)
+  criadoEm    DateTime @default(now())
+}
+
+model Evento {
+  id        Int      @id @default(autoincrement())
+  titulo    String
+  descricao String?
+  tipo      String
+  dataHora  DateTime
+  local     String?
+  criadoEm  DateTime @default(now())
+}
